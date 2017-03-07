@@ -96,7 +96,7 @@ package object barneshut {
         val quarterSize = size / 4
         val halfSize = size / 2
         val emptyQuadtree = Fork(Empty(centerX - quarterSize, centerY - quarterSize, halfSize), Empty(centerX + quarterSize, centerY - quarterSize, halfSize), Empty(centerX - quarterSize, centerY + quarterSize, halfSize), Empty(centerX + quarterSize, centerY + quarterSize, halfSize))
-        bodies.foldLeft(emptyQuadtree)(_.insert(_))
+        bodies.foldLeft(emptyQuadtree)(_.insert(_)).insert(b)
       } else {
         Leaf(centerX, centerY, size, bodies :+ b)
       }
